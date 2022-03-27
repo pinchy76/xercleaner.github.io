@@ -203,8 +203,8 @@ function tagXERTable(strTableData, strFieldToTag, strTagText) {
 
     //change the value in the column to tag
 
-    
-    if `${arrCurrentRowCellsArray[iColumnToTag]}`.localeCompare(strTagText.toString()) != 1){
+
+    if (`${arrCurrentRowCellsArray[iColumnToTag]}`.localeCompare(strTagText.toString()) != 1) {
       arrCurrentRowCellsArray[iColumnToTag] = `${strTagText.toString()}_${arrCurrentRowCellsArray[iColumnToTag]}`;
     }
     //loop through row cells and add them to string separated by tabs
