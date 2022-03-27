@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<!-- Stephen Pincher built this in 2022 -->
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="preconnect" href="https://fonts.googleapis.com"> 
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+        <link href="https://fonts.googleapis.com/css2?family=Gurajada&family=Raleway:wght@100&display=swap" rel="stylesheet">
+        <title>XER Cleaner</title>
+
+        <script src="js/main.js"></script>
+        <link rel="stylesheet" href="css/toggle-radios.css"><!-- Replace with bootstrap. -->
+        <link rel="stylesheet" href="css/styles.css"/>
+        
+
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+        />
+
+        
+
+    </head>
+    <body>
+        <div id="Container">
+            <div class="title">
+                <h3>Stephen Pincher's</h3>
+                <h1>XER Cleaner</h1>
+    
+            </div>
+            <div id="App">
+                <div class="formElement" id="XER-Options">
+                    <span><details><summary>Received a contractor's schedule XER?  Use this tool to clean out junk and unwanted 
+                        data <i>before</i> you import it.
+                    </span></summary>
+                    <br><span class="material-icons">thumb_up</span>
+                    <span>Delete junk data.</span>
+                    <br><span class="material-icons">thumb_up</span>
+                    <span>Delete unneeded codes and user fields.</span>
+                    <br><span class="material-icons">thumb_up</span>
+                    <span>Add text tags to fields so you can see your imported fields easily.</span>
+                    <br><span class="material-icons">thumb_up</span>
+                    <span>XER Cleaner is secure and safe! Nothing uploaded to servers. All operations in memory.</span>
+                    <br>
+                    <br><span>Easy 4 step process: 1 Import.  2 Choose Settings. 3 Clean.  4 Export.  DONE!</span>
+                    </details>
+                </div>
+                <div class="formElement" id="XER-Options">
+                    <table class="control-panel-element">
+                        <tr>
+                            <td>
+                                <div class="formElement" id="FilePicker">
+                                    <input type="file" accept=".xer,.Xer,.XER" multiple=false id="filePicker" class="inputfile" onchange="loadFileAsText()"/>
+                                    <label for="filePicker" id="click-filepicker">Click here to choose an XER to clean  </label>
+                                    <textarea class="Text_AREA" placeholder="XER will import to here" id="inputTextToSave"  rows="10" wrap='off'></textarea>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><details><summary>Clear Junk Data? (POBS, RISKTYPES)</summary>
+                             XERs can contain junk data that can clog up and slow down your database. 
+                             You should always try to remove this data before importing an XER.</details</td>
+                         </tr>
+                        <tr>
+                            <td>
+                            <div class="toggle-radio" data-style="rounded">
+                                <input type="radio" name="junkOption" id="junk_Option1" value="Ignore">
+                                <label for="junk_Option1">Ignore</label>
+                            
+                                <!-- <input type="radio" name="junkOption" id="junk_Option2" value="Tag" disabled>
+                                <label for="junk_Option2">Tag    </label> -->
+                            
+                                <input type="radio" name="junkOption" id="junk_Option3" value="Remove" checked>
+                                <label for="junk_Option3">Remove</label>
+                            </div>
+                            
+    
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><details><summary>Remove User Defined Fields (UDF)?</summary>
+                             You may not want to pollute your database with third party UDFs.  In this case choose DELETE.
+                            <br>If you leave them but check tag essential tables below, a tag will be added to the UDF Type.</details</td>
+                         </tr>
+                        <tr>
+                            <td>
+                            <div class="toggle-radio" data-style="rounded">
+                                <input type="radio" name="udfOption" id="udf_Option1" value="Ignore">
+                                <label for="udf_Option1">Ignore</label>
+                            
+                                <!--<input type="radio" name="udfOption" id="udf_Option2" value="Tag" disabled>
+                                <label for="udf_Option2">Tag    </label> -->
+                            
+                                <input type="radio" name="udfOption" id="udf_Option3" value="Remove" checked>
+                                <label for="udf_Option3">Remove</label>
+                            </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><details><summary>Clear non-essential tables?</summary>
+                             The following tables can usually be safely removed. APPLYACTOPTIONS`,
+                             `DOCCATG`,
+                             `DOCUMENT`,
+                             `LOCATION`,
+                             `MEMOTYPE`,
+                             `NONWORK`,
+                             `PCATTYPE`,
+                             `PCATVAL`,
+                             `PHASE`,
+                             `PROJTHRS`,
+                             `PROJPCAT`,
+                             `PROJISSU`,
+                             `ROLERATE`,
+                             `TASKDOC`,
+                             `TASKMEMO`,
+                             `TASKNOTE`,
+                             `WBSBUDG`,
+                             `WBSMEMO`,
+                             `WBSSTEP`</details</td>
+                         </tr>
+                        <tr>
+                            <td>
+                            <div class="toggle-radio" data-style="rounded">
+                                <input type="radio" name="nonCodeOption" id="non_Option1" value="Ignore">
+                                <label for="non_Option1">Ignore</label>
+                            
+                                <!--<input type="radio" name="nonCodeOption" id="non_Option2" value="Tag" disabled>
+                                <label for="non_Option2">Tag    </label> -->
+                            
+                                <input type="radio" name="nonCodeOption" id="non_Option3" value="Remove" checked>
+                                <label for="non_Option3">Remove</label>
+                            </div>
+                            </td>
+                        </tr>
+                        <tr>
+                           <td><details><summary>Tag essential tables? Calendars, Roles, Resources, Activity Codes</summary>
+                            You can add a tag of up to four characters before certain fields.  This makes them easier to see in the database.  
+                            An example is where you have multiple calendars called "5 day week".
+                            You can add a tag - "TAG1_5 day week" and you know which calendar you're looking at.</details</td>
+                        </tr>
+                        <tr>
+                            <td>
+                            <div class="toggle-radio" data-style="rounded">
+                                <input type="radio" name="taggingOption" id="taggingOption1" value="Ignore">
+                                <label for="taggingOption1">Ignore</label>
+                            
+                                <input type="radio" name="taggingOption" id="taggingOption2" value="Tag" checked>
+                                <label for="taggingOption2">Tag    </label>
+                            
+                                <!--<input type="radio" name="taggingOption" id="taggingOption3" value="Remove" disabled>
+                                <label for="taggingOption3">Remove</label> -->
+                            </div>
+                            </td>
+                        <tr class="control-panel-element" >
+                            <td><details><summary>Type your tag in the box below</summary>
+                                Tags can be up to four characters in length and will be followed by an underscore(_) 
+                                in the database.</details</td>
+                        </tr>
+                        <tr>
+                            <td><input id="inputTagValue"  maxlength="4"></input></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button onclick="xerParser()" class="actionbutton" >Run XER Cleaner</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Type the filename to save as here (just the name, no path)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input id="inputFileNameToSaveAs"></input>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button onclick="saveTextAsFile()" class="actionbutton">Save Text to File</button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div id="kofi">
+                    Find this helpful? Buy me a coffee! <script type='text/javascript' src='https://ko-fi.com/widgets/widget_2.js'></script><script type='text/javascript'>kofiwidget2.init('Support Me on Ko-fi', '#29abe0', 'M4M818G2N');kofiwidget2.draw();</script>
+                </div>
+            </div>
+            
+        </div>
+        
+    </body>
+    <script src="js/xerParser.js"></script>
+    <script src="js/processXER.js"></script>
+</html>

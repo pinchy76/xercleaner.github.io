@@ -1,0 +1,113 @@
+/*
+Toggle Radios v1.4
+by Adam Culpepper | @adamculpepper
+https://github.com/adamculpepper/toggle-radios
+*/
+
+/* Customizable styles */
+
+/* Colors: Default (blue) */
+.toggle-radio > input + label {background: grey; border:1px solid rgba(0, 0, 0, 0.2); border-width:1px 1px 0 1px;}
+.toggle-radio > input:last-of-type + label {border-bottom-width:1px;}
+.toggle-radio > input:checked + label {background:rgb(26, 150, 47);;}
+
+/* Rounded corners */
+.toggle-radio input:first-of-type + label {border-radius:4px 4px 0 0;}
+.toggle-radio input:last-of-type + label {border-radius:0 0 4px 4px;}
+
+/* Indicators for smaller devices (stacked) */
+.toggle-radio > input + label:before {content:''; display:inline-block; width:16px; height:16px; margin-right:0.50rem; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath style='fill:%23000;' d='M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:center center; background-size:16px 16px;}
+.toggle-radio > input:checked + label:before {background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath style='fill:%23000;' d='M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z'/%3E%3C/svg%3E");}
+
+/* //////////////////////////
+CORE STYLES BELOW - NO TOUCHY
+////////////////////////// */
+.toggle-radio {display:inline-block; vertical-align:middle;}
+.toggle-radio > input[type='radio'] {display:none;}
+.toggle-radio > input[disabled] + label {opacity:0.50;}
+.toggle-radio > input[disabled] + label:hover {cursor:not-allowed;}
+.toggle-radio > input + label {display:flex; margin-bottom:0; padding:5px 10px; cursor:pointer; align-items:center;}
+
+/* Transitions */
+.toggle-radio > input:checked + label {transition:background 300ms linear;}
+
+/* //////////////////////////
+CORE STYLES ABOVE - NO TOUCHY
+////////////////////////// */
+
+/* Style: Rounded */
+.toggle-radio[data-style='rounded'] > input:first-of-type + label		{border-radius:20px 20px 0 0;}
+.toggle-radio[data-style='rounded'] > input:last-of-type + label		{border-radius:0 0 20px 20px;}
+
+/* Style: Square */
+.toggle-radio[data-style='square'] > input + label			{border-radius:0;}
+
+/* Color */
+.toggle-radio[data-color] > input + label					{color:#fff;}
+.toggle-radio[data-color] > input + label:before 			{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath style='fill:%23fff;' d='M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z'/%3E%3C/svg%3E");}
+.toggle-radio[data-color] > input:checked + label:before	{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath style='fill:%23fff;' d='M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z'/%3E%3C/svg%3E");}
+
+/* Color: Red */
+.toggle-radio[data-color='red'] > input + label				{background:#e74c3c;}
+.toggle-radio[data-color='red'] > input:checked + label		{background:#9a0000;}
+
+/* Color: Orange */
+.toggle-radio[data-color='orange'] > input + label			{background:#e67e22;}
+.toggle-radio[data-color='orange'] > input:checked + label	{background:#993100;}
+ 
+/* Color: Yellow */
+.toggle-radio[data-color='yellow'] > input + label			{background:#f1c30f;}
+.toggle-radio[data-color='yellow'] > input:checked + label	{background:#a47600;}
+
+/* Color: Green */
+.toggle-radio[data-color='green'] > input + label			{background:#2ecc71;}
+.toggle-radio[data-color='green'] > input:checked + label	{background:#007f24;}
+
+/* Color: Blue */
+.toggle-radio[data-color='blue'] > input + label			{background:#3498db;}
+.toggle-radio[data-color='blue'] > input:checked + label	{background:#004b8e;}
+
+/* Color: Purple */
+.toggle-radio[data-color='purple'] > input + label			{background:#aa66cc;}
+.toggle-radio[data-color='purple'] > input:checked + label	{background:#5d197f;}
+
+/* Color: Gray */
+.toggle-radio[data-color='gray'] > input + label			{background:#555555;}
+.toggle-radio[data-color='gray'] > input:checked + label	{background:#080808;}
+
+
+/* ------------------------------ */
+
+/* Bootstrap Breakpoints */
+
+/* Small (sm) and up */
+@media (min-width:576px) {
+
+}
+
+
+/* Medium (md) and up */
+@media (min-width:768px) {
+
+}
+
+
+/* Large (lg) and up */
+@media (min-width:992px) {
+	.toggle-radio > input + label				{display:inline-block; float:left; border-width:1px 0 1px 1px;}
+	.toggle-radio > input:last-of-type + label 	{border-right-width:1px;}
+	.toggle-radio > input + label:before		{display:none;}
+
+	/* Border Radius */
+	.toggle-radio input:first-of-type + label	{border-radius:4px 0 0 4px;}
+	.toggle-radio input:last-of-type + label 	{border-radius:0 4px 4px 0;}
+
+	/* Rounded */
+	.toggle-radio[data-style='rounded'] > input:first-of-type + label {border-radius:500px 0 0 500px;}
+	.toggle-radio[data-style='rounded'] > input:last-of-type + label {border-radius:0 500px 500px 0;}
+}
+
+/* Extra Large (xl) and up */
+@media (min-width:1200px) {
+
+}
