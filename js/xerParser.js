@@ -91,7 +91,7 @@ function xerParser() {
   const optChkClearTag = document.querySelector('input[name="taggingOption"]:checked').value;
 
   if (optChkClearTag == "Tag") {
-    const strTagValue = document.getElementById("inputTagValue").value;
+    const strTagValue = String(document.getElementById("inputTagValue").value);
     const arrTagTables = [
       [`CALENDAR`, `clndr_name`],
       [`ROLES`, `role_short_name`],
