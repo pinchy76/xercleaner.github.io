@@ -203,7 +203,7 @@ function tagXERTable(strTableData, strFieldToTag, strTagText) {
     //change the value in the column to tag
 
     if ((`${arrCurrentRowCellsArray[iColumnToTag]}`).localeCompare(String(strTagText)) != 1){
-      arrCurrentRowCellsArray[iColumnToTag] = `${strTagText}_${arrCurrentRowCellsArray[iColumnToTag]}`;
+      arrCurrentRowCellsArray[iColumnToTag] = `${String(strTagText)}_${arrCurrentRowCellsArray[iColumnToTag]}`;
     }
     //loop through row cells and add them to string separated by tabs
     //(can`t get array join to work)
