@@ -204,9 +204,9 @@ function tagXERTable(strTableData, strFieldToTag, strTagText) {
     //change the value in the column to tag
 
 
-    if (`${arrCurrentRowCellsArray[iColumnToTag]}`.search(`${strTagText.toString()}_$`) == -1) {
+//    if (`${arrCurrentRowCellsArray[iColumnToTag]}`.search(`${strTagText.toString()}_$`) == -1) {
       arrCurrentRowCellsArray[iColumnToTag] = `${strTagText.toString()}_${arrCurrentRowCellsArray[iColumnToTag]}`;
-    }
+//    }
     //loop through row cells and add them to string separated by tabs
     //(can`t get array join to work)
     for (let x = 0; x < arrCurrentRowCellsArray.length; x++) {
