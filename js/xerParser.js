@@ -91,7 +91,7 @@ function xerParser() {
   const optChkClearTag = document.querySelector('input[name="taggingOption"]:checked').value;
 
   if (optChkClearTag == "Tag") {
-    const strTagValue = String(document.getElementById("inputTagValue").value); 
+    const strTagValue = `${document.getElementById("inputTagValue").toString}_`; 
     const arrTagTables = [
       [`CALENDAR`, `clndr_name`],
       [`ROLES`, `role_short_name`],
@@ -203,10 +203,11 @@ function tagXERTable(strTableData, strFieldToTag, strTagText) {
 
     //change the value in the column to tag
 
-    
-    if `${arrCurrentRowCellsArray[iColumnToTag]}`.localeCompare(strTagText.toString()) != 1){
-      arrCurrentRowCellsArray[iColumnToTag] = `${strTagText.toString()}_${arrCurrentRowCellsArray[iColumnToTag]}`;
+
+    if (`${arrCurrentRowCellsArray[iColumnToTag]}`.search(`${strTagText}`) == -1) {
+      arrCurrentRowCellsArray[iColumnToTag] = `${strTagText}${arrCurrentRowCellsArray[iColumnToTag]}`;
     }
+      
     //loop through row cells and add them to string separated by tabs
     //(can`t get array join to work)
     for (let x = 0; x < arrCurrentRowCellsArray.length; x++) {
