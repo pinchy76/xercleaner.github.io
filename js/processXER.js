@@ -47,7 +47,7 @@ function loadFileAsText() {
   
 function printLoadedText() {
     var loadedText = document.getElementById("inputTextToSave").value;
-    console.log(loadedText);
+    swal("Success", "XER has loaded!", "success");
     }
   
   

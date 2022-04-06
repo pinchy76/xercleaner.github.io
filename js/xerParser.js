@@ -10,6 +10,7 @@
 function xerParser() {
 
     if (document.getElementById("inputTextToSave").value.length == 0){
+        swal("Error", "No XER loaded", "error");
         return {
             error: true,
             message: 'No XER loaded'
@@ -130,6 +131,7 @@ function xerParser() {
   }
   
   document.getElementById("inputTextToSave").value = strNewXER;
+  swal("Success!", "XER Cleaning Successful.  You can proceed to save", "success");
 }
 
 //Sets string passed in from dictionary to empty
