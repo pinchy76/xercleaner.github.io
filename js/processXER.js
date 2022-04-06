@@ -19,6 +19,7 @@ function saveTextAsFile() {
     document.body.appendChild(downloadLink);
   
     downloadLink.click();
+    swal("Success!", "You saved your XER.", "success");
   }
   
 function destroyClickedElement(event) {
@@ -41,13 +42,14 @@ function loadFileAsText() {
         var textFromFileLoaded = fileLoadedEvent.target.result;
         document.getElementById("inputTextToSave").value = textFromFileLoaded;
         document.getElementById("inputFileNameToSaveAs").value = fileToLoad.name + "_CLEAN";
+        swal("Success", "XER has loaded.", "success");
     };
     fileReader.readAsText(fileToLoad, "UTF-8");
     }
   
 function printLoadedText() {
     var loadedText = document.getElementById("inputTextToSave").value;
-    swal("Success", "XER has loaded!", "success");
+    
     }
   
   
